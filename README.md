@@ -324,8 +324,8 @@
         </p>
 
         <div class="meta-row">
-          <span class="meta-pill">User: Sriram</span>
-          <span class="meta-pill">Password suffix: today’s date (YYYYMMDD)</span>
+          <span class="meta-pill"></span>
+          <span class="meta-pill">Password IN </span>
           <span class="meta-pill">Environment: Production</span>
         </div>
 
@@ -393,7 +393,7 @@
 
         <div id="dashboardLink" class="dashboard-link">
           Login successful.  
-          <a href="https://github.com/Joefrancisq/SRIRAM/blob/main/Dashboard" target="_blank" rel="noopener noreferrer">
+          <a href="Dashboard.html">
             Open Operations Analytics Hub
           </a>
         </div>
