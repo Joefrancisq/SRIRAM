@@ -396,7 +396,7 @@
 
         <div id="dashboardLink" class="dashboard-link">
           Login successful.  
-          <a href="index.html" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Joefrancisq/SRIRAM/blob/main/Dashboard" target="_blank" rel="noopener noreferrer">
             Open Operations Analytics Hub
           </a>
         </div>
