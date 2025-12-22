@@ -484,10 +484,38 @@
                href="https://analytics.zoho.com/workspace/3051221000000037359/view/3051221000000037396"
                target="_blank" rel="noopener noreferrer">
                 <div class="card-inner">
-                    <figure class="card-figure">
-                        <img src="images/overdue-orders.jpg" alt="Overdue Orders As On Date dashboard">
-                        <div class="chip"><span class="chip-dot"></span>Risk watch</div>
-                    </figure>
+                   <figure class="card-figure">
+  <div
+    style="
+      width: 100%;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 10% 0, #eef2ff 0, #dbeafe 40%, #bfdbfe 100%);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    "
+  >
+    Overdue Orders As On Date
+  </div>
+
+  <div class="chip">
+    <span class="chip-dot"></span>
+    Risk Watch &amp; 
+  </div>
+</figure>
                     <div class="card-body">
                         <div class="card-title">Overdue Orders As On Date</div>
                         <div class="card-desc">Track customer orders that are past the promised delivery date.</div>
@@ -534,10 +562,38 @@
                href="https://analytics.zoho.com/workspace/3051221000000035463/view/3051221000000035510"
                target="_blank" rel="noopener noreferrer">
                 <div class="card-inner">
-                    <figure class="card-figure">
-                        <img src="images/invoicing-status.jpg" alt="Invoicing Status dashboard">
-                        <div class="chip"><span class="chip-dot"></span>Cash flow</div>
-                    </figure>
+                   <figure class="card-figure">
+  <div
+    style="
+      width: 100%;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 10% 0, #eef2ff 0, #dbeafe 40%, #bfdbfe 100%);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    "
+  >
+    Invoicing Status
+  </div>
+
+  <div class="chip">
+    <span class="chip-dot"></span>
+   Billing Cycle &amp; 
+  </div>
+</figure>
                     <div class="card-body">
                         <div class="card-title">Invoicing Status</div>
                         <div class="card-desc">Visualize pending, processed and disputed invoices in real time.</div>
