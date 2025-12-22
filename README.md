@@ -377,8 +377,26 @@
                target="_blank" rel="noopener noreferrer">
                 <div class="card-inner">
                     <figure class="card-figure">
-                        <img src="images/consumable-priority-action.jpg" alt="Consumable Priority Action dashboard">
-                        <div class="chip"><span class="chip-dot"></span>Inventory focus</div>
+                        <figure class="card-figure">
+  <!-- Replace the <img> with this div -->
+  <div style="
+      width: 100%;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg,#e5edff,#dbeafe);
+      color: #1f2933;
+      font-weight: 600;
+      font-size: 16px;
+      text-align: center;
+      padding: 0 12px;
+  ">
+    Consumable Priority Action
+  </div>
+  <div class="chip"><span class="chip-dot"></span>Inventory focus</div>
+</figure>
+
                     </figure>
                     <div class="card-body">
                         <div class="card-title">Consumable Priority Action</div>
