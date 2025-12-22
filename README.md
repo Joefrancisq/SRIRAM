@@ -323,11 +323,7 @@
           Access is restricted and every login is tied to the current date for traceability.
         </p>
 
-        <div class="meta-row">
-          <span class="meta-pill"></span>
-          <span class="meta-pill">Password IN </span>
-          <span class="meta-pill">Environment: Production</span>
-        </div>
+        
 
         <div class="preview">
           <div>
@@ -382,7 +378,7 @@
             />
           </div>
           <div class="hint">
-            Hi Sriram
+            
           </div>
         </div>
 
