@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operations Analytics Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Simple, reliable, responsive layout -->
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --card-bg: #ffffff;
+            --primary: #2563eb;
+            --primary-soft: #e0ecff;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.06);
+            --radius-lg: 14px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top left,#eef2ff 0,#f5f7fb 42%,#f9fafb 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top navigation */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            border-bottom: 1px solid rgba(148,163,184,.35);
+            backdrop-filter: blur(20px);
+            background: linear-gradient(to right,rgba(248,250,252,.9),rgba(239,246,255,.9));
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            background: radial-gradient(circle at 20% 0,#4f46e5,#2563eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 6px 16px rgba(37,99,235,.6);
+        }
+
+        .nav-title {
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            font-size: 18px;
+        }
+
+        .nav-sub {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .nav-pill {
+            padding: 6px 12px;
+            border-radius: 9999px;
+            background: var(--primary-soft);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .nav-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 9999px;
+            background: linear-gradient(135deg,#22c55e,#16a3e5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 6px 16px rgba(15,118,110,.4);
+        }
+
+        /* Main wrapper */
+        .wrapper {
+            max-width: 1200px;
+            margin: 24px auto 40px;
+            padding: 0 24px 48px;
+            width: 100%;
+        }
+
+        .page-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .page-header-text h1 {
+            font-size: 26px;
+            letter-spacing: 0.01em;
+        }
+
+        .page-header-text p {
+            margin-top: 6px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .tag-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .tag {
+            padding: 4px 10px;
+            border-radius: 9999px;
+            border: 1px solid rgba(148,163,184,.6);
+            background: rgba(255,255,255,.8);
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .status-pill {
+            padding: 5px 12px;
+            border-radius: 9999px;
+            background: rgba(22,163,74,.08);
+            color: #15803d;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid rgba(22,163,74,.3);
+        }
+
+        /* Cards grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap: 18px;
+        }
+
+        @media (max-width: 960px) {
+            .card-grid {
+                grid-template-columns: repeat(2, minmax(0,1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav { padding: 12px 16px; }
+            .wrapper { padding: 0 16px 32px; }
+            .card-grid {
+                grid-template-columns: minmax(0,1fr);
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg,rgba(129,140,248,.45),rgba(59,130,246,.1),rgba(236,72,153,.25));
+            opacity: 0;
+            transition: opacity .22s ease;
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 45px rgba(15,23,42,.18);
+            border-color: rgba(59,130,246,.45);
+        }
+
+        .card:hover::before {
+            opacity: 0.85;
+        }
+
+        .card-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-figure {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-figure img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            transition: transform .22s ease;
+        }
+
+        .card:hover .card-figure img {
+            transform: scale(1.04);
+        }
+
+        .chip {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 10px;
+            background: rgba(15,23,42,.78);
+            color: rgba(249,250,251,.95);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .chip-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 9999px;
+            background: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34,197,94,.45);
+        }
+
+        .card-body {
+            padding: 14px 14px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+
+        .card-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 6px;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .card-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .pill-small {
+            padding: 3px 8px;
+            border-radius: 9999px;
+            border: 1px solid rgba(148,163,184,.6);
+            background: rgba(248,250,252,.9);
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .card-link svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        a.card-block {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 16px 24px 20px;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top bar -->
+    <header class="nav">
+        <div class="nav-left">
+            <div class="nav-logo">OA</div>
+            <div>
+                <div class="nav-title">Operations Analytics</div>
+                <div class="nav-sub">Internal performance dashboards</div>
+            </div>
+        </div>
+        <div class="nav-right">
+            <span class="nav-pill">Production · Live</span>
+            <div class="nav-avatar">RK</div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="wrapper">
+        <section class="page-header">
+            <div class="page-header-text">
+                <h1>Quick access to key reports</h1>
+                <p>Launch Zoho Analytics dashboards from a single, reliable hub page.</p>
+                <div class="tag-row">
+                    <span class="tag">Zoho Analytics</span>
+                    <span class="tag">Supply‑chain</span>
+                    <span class="tag">Finance &amp; Billing</span>
+                </div>
+            </div>
+            <span class="status-pill">SLA: 99.9% availability</span>
+        </section>
+
+        <!-- Cards grid -->
+        <section class="card-grid">
+
+            <!-- 1. Consumable Priority Action -->
+            <a class="card card-block"
+               href="https://analytics.zoho.com/workspace/3051221000000052001/view/3051221000000067031"
+               target="_blank" rel="noopener noreferrer">
+                <div class="card-inner">
+                    <figure class="card-figure">
+                        <img src="images/consumable-priority-action.jpg" alt="Consumable Priority Action dashboard">
+                        <div class="chip"><span class="chip-dot"></span>Inventory focus</div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="card-title">Consumable Priority Action</div>
+                        <div class="card-desc">Identify critical consumable stock actions that need immediate attention.</div>
+                        <div class="card-meta">
+                            <span><span class="pill-small">Operations</span></span>
+                            <span class="card-link">
+                                Open report
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M6 14L14 6M9 6H14V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 2. Warehouse Material Movement -->
+            <a class="card card-block"
+               href="https://analytics.zoho.com/workspace/3051221000000052001/view/3051221000000309043"
+               target="_blank" rel="noopener noreferrer">
+                <div class="card-inner">
+                    <figure class="card-figure">
+                        <img src="images/warehouse-material-movement.jpg" alt="Warehouse Material Movement dashboard">
+                        <div class="chip"><span class="chip-dot"></span>Logistics</div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="card-title">Warehouse Material Movement</div>
+                        <div class="card-desc">Monitor inbound and outbound material flows across warehouses.</div>
+                        <div class="card-meta">
+                            <span><span class="pill-small">Warehouse</span></span>
+                            <span class="card-link">
+                                Open report
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M6 14L14 6M9 6H14V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 3. Overdue Orders As On Date -->
+            <a class="card card-block"
+               href="https://analytics.zoho.com/workspace/3051221000000037359/view/3051221000000037396"
+               target="_blank" rel="noopener noreferrer">
+                <div class="card-inner">
+                    <figure class="card-figure">
+                        <img src="images/overdue-orders.jpg" alt="Overdue Orders As On Date dashboard">
+                        <div class="chip"><span class="chip-dot"></span>Risk watch</div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="card-title">Overdue Orders As On Date</div>
+                        <div class="card-desc">Track customer orders that are past the promised delivery date.</div>
+                        <div class="card-meta">
+                            <span><span class="pill-small">Customer orders</span></span>
+                            <span class="card-link">
+                                Open report
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M6 14L14 6M9 6H14V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 4. OVL‑Purchases Snapshot YTD -->
+            <a class="card card-block"
+               href="https://analytics.zoho.com/workspace/3051221000000035001/view/3051221000000148047"
+               target="_blank" rel="noopener noreferrer">
+                <div class="card-inner">
+                    <figure class="card-figure">
+                        <img src="images/ovl-purchases-ytd.jpg" alt="OVL Purchases Snapshot YTD dashboard">
+                        <div class="chip"><span class="chip-dot"></span>Spend view</div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="card-title">OVL‑Purchases Snapshot YTD</div>
+                        <div class="card-desc">Year‑to‑date purchase trends and supplier performance at a glance.</div>
+                        <div class="card-meta">
+                            <span><span class="pill-small">Purchasing</span></span>
+                            <span class="card-link">
+                                Open report
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M6 14L14 6M9 6H14V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 5. Invoicing Status -->
+            <a class="card card-block"
+               href="https://analytics.zoho.com/workspace/3051221000000035463/view/3051221000000035510"
+               target="_blank" rel="noopener noreferrer">
+                <div class="card-inner">
+                    <figure class="card-figure">
+                        <img src="images/invoicing-status.jpg" alt="Invoicing Status dashboard">
+                        <div class="chip"><span class="chip-dot"></span>Cash flow</div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="card-title">Invoicing Status</div>
+                        <div class="card-desc">Visualize pending, processed and disputed invoices in real time.</div>
+                        <div class="card-meta">
+                            <span><span class="pill-small">Finance</span></span>
+                            <span class="card-link">
+                                Open report
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M6 14L14 6M9 6H14V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 6. 1 Rupee JO YTD -->
+            <a class="card card-block"
+               href="https://analytics.zoho.com/workspace/3051221000000035001/view/3051221000000274050"
+               target="_blank" rel="noopener noreferrer">
+                <div class="card-inner">
+                    <figure class="card-figure">
+                        <img src="images/one-rupee-jo-ytd.jpg" alt="1 Rupee JO YTD dashboard">
+                        <div class="chip"><span class="chip-dot"></span>Exception view</div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="card-title">1 Rupee JO YTD</div>
+                        <div class="card-desc">Review 1‑rupee job orders and exceptions across the current year.</div>
+                        <div class="card-meta">
+                            <span><span class="pill-small">Audit</span></span>
+                            <span class="card-link">
+                                Open report
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M6 14L14 6M9 6H14V11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </section>
+    </main>
+
+    <footer>
+        &copy; <span id="year"></span> Operations Analytics · Internal use only
+    </footer>
+
+    <script>
+        // Keep footer year current
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
