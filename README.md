@@ -333,10 +333,7 @@
           <div>
             <div class="preview-title">Password pattern</div>
             <p>
-              The password is built as:
-              <strong>Sriram + today’s date in YYYYMMDD format</strong>.  
-              Example: if today is 2025‑12‑22, password becomes
-              <strong>Sriram20251222</strong>.
+              Let's Guess out the pattern
             </p>
             <div class="preview-chip">
               <span class="preview-chip-dot"></span>
@@ -385,7 +382,7 @@
             />
           </div>
           <div class="hint">
-            Format: Sriram + today’s date (YYYYMMDD), e.g. Sriram20251222.
+            Hi Sriram
           </div>
         </div>
 
