@@ -431,9 +431,38 @@
                target="_blank" rel="noopener noreferrer">
                 <div class="card-inner">
                     <figure class="card-figure">
-                        <img src="images/warehouse-material-movement.jpg" alt="Warehouse Material Movement dashboard">
-                        <div class="chip"><span class="chip-dot"></span>Logistics</div>
-                    </figure>
+  <div
+    style="
+      width: 100%;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 10% 0, #eef2ff 0, #dbeafe 40%, #bfdbfe 100%);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    "
+  >
+    Warehouse Material Movement Dashboard
+  </div>
+
+  <div class="chip">
+    <span class="chip-dot"></span>
+    Logistics &amp; Stock Flow
+  </div>
+</figure>
+
                     <div class="card-body">
                         <div class="card-title">Warehouse Material Movement</div>
                         <div class="card-desc">Monitor inbound and outbound material flows across warehouses.</div>
