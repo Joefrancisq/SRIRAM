@@ -408,7 +408,7 @@
 </figure>
 
 
-                    </figure>
+                    
                     <div class="card-body">
                         <div class="card-title">Consumable Priority Action</div>
                         <div class="card-desc">Identify critical consumable stock actions that need immediate attention.</div>
@@ -513,7 +513,7 @@
 
   <div class="chip">
     <span class="chip-dot"></span>
-    Risk Watch &amp; 
+    Risk Watch ; 
   </div>
 </figure>
                     <div class="card-body">
@@ -538,9 +538,38 @@
                target="_blank" rel="noopener noreferrer">
                 <div class="card-inner">
                     <figure class="card-figure">
-                        <img src="images/ovl-purchases-ytd.jpg" alt="OVL Purchases Snapshot YTD dashboard">
-                        <div class="chip"><span class="chip-dot"></span>Spend view</div>
-                    </figure>
+  <div
+    style="
+      width: 100%;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 10% 0, #eef2ff 0, #dbeafe 40%, #bfdbfe 100%);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    "
+  >
+   Overall Purchase Report
+  </div>
+
+  <div class="chip">
+    <span class="chip-dot"></span>
+   Spend View ; 
+  </div>
+</figure>
+
                     <div class="card-body">
                         <div class="card-title">OVL‑Purchases Snapshot YTD</div>
                         <div class="card-desc">Year‑to‑date purchase trends and supplier performance at a glance.</div>
@@ -591,7 +620,7 @@
 
   <div class="chip">
     <span class="chip-dot"></span>
-   Billing Cycle &amp; 
+   Billing Cycle ; 
   </div>
 </figure>
                     <div class="card-body">
