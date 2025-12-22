@@ -377,25 +377,36 @@
                target="_blank" rel="noopener noreferrer">
                 <div class="card-inner">
                     <figure class="card-figure">
-                        <figure class="card-figure">
-  <!-- Replace the <img> with this div -->
-  <div style="
+  <div
+    style="
       width: 100%;
-      height: 160px;
+      height: 170px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg,#e5edff,#dbeafe);
-      color: #1f2933;
-      font-weight: 600;
-      font-size: 16px;
       text-align: center;
-      padding: 0 12px;
-  ">
+      padding: 0 16px;
+
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 10% 0, #eef2ff 0, #dbeafe 40%, #bfdbfe 100%);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.02em;
+    "
+  >
     Consumable Priority Action
   </div>
-  <div class="chip"><span class="chip-dot"></span>Inventory focus</div>
+
+  <div class="chip">
+    <span class="chip-dot"></span>
+    Inventory focus
+  </div>
 </figure>
+
 
                     </figure>
                     <div class="card-body">
