@@ -377,7 +377,7 @@
 
       // Redirect to your dashboard page
       setTimeout(function () {
-        window.location.href = "Dashboard.html";  // change to full URL if needed
+        window.location.href = "Dashboard";  // change to full URL if needed
       }, 500);
     });
   </script>
