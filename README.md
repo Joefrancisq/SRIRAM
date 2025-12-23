@@ -271,8 +271,7 @@
           <div>
             <div class="preview-title">Password pattern</div>
             <p>
-              The password is built as <strong>Sriram + today’s date in YYYYMMDD format</strong>.
-              Example: if today is 2025‑12‑22, the password is <strong>Sriram20251222</strong>.
+              Typically Pattern
             </p>
             <div class="preview-chip">
               <span class="preview-chip-dot"></span>
@@ -369,7 +368,7 @@
 
       if (password !== expectedPassword) {
         errorEl.textContent =
-          "Invalid password. Use Sriram followed by today’s date in YYYYMMDD format.";
+          "Invalid password. ";
         return;
       }
 
