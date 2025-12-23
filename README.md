@@ -281,8 +281,7 @@
           <div>
             <div class="preview-title">Hint</div>
             <p>
-              Make sure your device date and time are correct, otherwise the
-              expected suffix will not match and authentication will fail.
+              Make sure your device is Working.
             </p>
           </div>
         </div>
@@ -293,8 +292,8 @@
     <section class="panel-right">
       <h2 class="form-title">Sign in to continue</h2>
       <p class="form-subtitle">
-        Enter your credentials. Password changes every day based on the date suffix.
-      </p>
+        Enter your credentials. 
+        </p>
 
       <form id="loginForm" autocomplete="off">
         <div class="field">
