@@ -1,5 +1,4 @@
-# SRIRAM
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -70,10 +69,7 @@
       pointer-events: none;
     }
 
-    .panel-left-inner {
-      position: relative;
-      z-index: 1;
-    }
+    .panel-left-inner { position: relative; z-index: 1; }
 
     .badge {
       display: inline-flex;
@@ -108,22 +104,6 @@
       color: var(--text-muted);
       max-width: 420px;
       margin-bottom: 24px;
-    }
-
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 26px;
-    }
-
-    .meta-pill {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.4);
-      color: var(--text-muted);
-      background: rgba(15,23,42,0.85);
     }
 
     .preview {
@@ -181,10 +161,7 @@
       justify-content: center;
     }
 
-    .form-title {
-      font-size: 18px;
-      margin-bottom: 4px;
-    }
+    .form-title { font-size: 18px; margin-bottom: 4px; }
 
     .form-subtitle {
       font-size: 12px;
@@ -192,9 +169,7 @@
       margin-bottom: 18px;
     }
 
-    .field {
-      margin-bottom: 14px;
-    }
+    .field { margin-bottom: 14px; }
 
     label {
       display: block;
@@ -203,9 +178,7 @@
       color: var(--text-muted);
     }
 
-    .input-wrap {
-      position: relative;
-    }
+    .input-wrap { position: relative; }
 
     input[type="text"],
     input[type="password"] {
@@ -226,12 +199,6 @@
       border-color: var(--accent);
       box-shadow: 0 0 0 1px rgba(34,197,94,0.6);
       background: #020617;
-    }
-
-    .hint {
-      font-size: 10px;
-      color: var(--text-muted);
-      margin-top: 4px;
     }
 
     .error {
@@ -262,190 +229,4 @@
       text-transform: uppercase;
       cursor: pointer;
       box-shadow: 0 14px 40px rgba(22,163,74,0.6);
-      transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
-    }
-
-    button:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.02);
-      box-shadow: 0 18px 55px rgba(22,163,74,0.75);
-    }
-
-    button:active {
-      transform: translateY(0);
-      box-shadow: 0 10px 30px rgba(22,163,74,0.55);
-    }
-
-    .footer-row {
-      margin-top: 18px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 10px;
-      color: var(--text-muted);
-    }
-
-    .link {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .link:hover { text-decoration: underline; }
-
-    .dashboard-link {
-      margin-top: 12px;
-      display: none;
-      font-size: 12px;
-    }
-
-    .dashboard-link a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .dashboard-link a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <div class="shell">
-    <!-- Left info panel -->
-    <section class="panel-left">
-      <div class="panel-left-inner">
-        <div class="badge">
-          <span class="badge-dot"></span>
-          Operations Analytics · Secure Access
-        </div>
-        <h1 class="headline">Welcome, Sriram</h1>
-        <p class="subhead">
-          Use your single‑user credential to launch the Operations Analytics Hub.
-          Access is restricted and every login is tied to the current date for traceability.
-        </p>
-
-        
-
-        <div class="preview">
-          <div>
-            <div class="preview-title">Password pattern</div>
-            <p>
-              Let's Guess out the pattern
-            </p>
-            <div class="preview-chip">
-              <span class="preview-chip-dot"></span>
-              Generated dynamically on login
-            </div>
-          </div>
-          <div>
-            <div class="preview-title">Hint</div>
-            <p>
-              Make sure your device date and time are correct, otherwise the
-              expected suffix will not match and authentication will fail.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Right login panel -->
-    <section class="panel-right">
-      <h2 class="form-title">Sign in to continue</h2>
-      <p class="form-subtitle">
-        Enter your credentials. Password changes every day based on the date suffix.
-      </p>
-
-      <form id="loginForm" autocomplete="off">
-        <div class="field">
-          <label for="username">User name</label>
-          <div class="input-wrap">
-            <input
-              id="username"
-              name="username"
-              type="text"
-              placeholder="Enter user name"
-            />
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="password">Password</label>
-          <div class="input-wrap">
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Enter Password"
-            />
-          </div>
-          <div class="hint">
-            
-          </div>
-        </div>
-
-        <div id="error" class="error"></div>
-        <div id="success" class="success"></div>
-
-        <button type="submit">Authenticate</button>
-
-        <div id="dashboardLink" class="dashboard-link">
-          Login successful.  
-          <a href="Dashboard.html">
-            Open Operations Analytics Hub
-          </a>
-        </div>
-
-        <div class="footer-row">
-          <span>© <span id="year"></span> Operations Analytics</span>
-          <span>Secured login · Sriram only</span>
-        </div>
-      </form>
-    </section>
-  </div>
-
-  <script>
-    function formatTodayYYYYMMDD() {
-      const d = new Date();
-      const y = d.getFullYear();
-      const m = String(d.getMonth() + 1).padStart(2, "0");
-      const day = String(d.getDate()).padStart(2, "0");
-      return `${y}${m}${day}`;
-    }
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const form = document.getElementById("loginForm");
-    const errorEl = document.getElementById("error");
-    const successEl = document.getElementById("success");
-    const dashboardLink = document.getElementById("dashboardLink");
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      errorEl.textContent = "";
-      successEl.textContent = "";
-      dashboardLink.style.display = "none";
-
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
-
-      const todaySuffix = formatTodayYYYYMMDD();
-      const expectedUser = "Sriram";
-      const expectedPassword = expectedUser + todaySuffix;
-
-      if (username !== expectedUser) {
-        errorEl.textContent = "Invalid user name. Only Sriram is allowed.";
-        return;
-      }
-
-      if (password !== expectedPassword) {
-        errorEl.textContent =
-          "Invalid password. Use Sriram followed by today’s date in YYYYMMDD format.";
-        return;
-      }
-
-      successEl.textContent = "Authentication successful.";
-      dashboardLink.style.display = "block";
-    });
-  </script>
-</body>
-</html>
-
+      transition: transform 0.14s ease, box-shadow 0
